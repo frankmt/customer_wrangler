@@ -1,5 +1,4 @@
-require_relative '../../main.rb'
-require 'keen'
+require_relative '../../config/boot.rb'
 
 namespace :fixtures do
 
