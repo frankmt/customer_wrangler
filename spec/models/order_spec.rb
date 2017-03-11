@@ -11,4 +11,13 @@ RSpec.describe Order do
     expect(order.total).to eq(100.10)
   end
 
+  it "should accept custom custom" do
+    details = {item_total: 90, delivery_fee: 7.99, first_name: 'Harry'}
+    order = Order.new(details: details)
+
+    expect(order.details[:item_total]).to eq(90)
+    expect(order.details[:delivery_fee]).to eq(7.99)
+    expect(order.details[:first_name]).to eq('Harry')
+  end
+
 end
