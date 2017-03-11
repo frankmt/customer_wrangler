@@ -5,6 +5,8 @@ Dir[("app/**/*.rb")].each do |f|
   require_relative f
 end
 
+set :views, Proc.new { File.join(root, "app/views") }
+
 get '/' do
-  erb 'Hello'
+   haml :'customers/show'
 end
