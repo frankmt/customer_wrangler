@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title Customer Wrangler
+    %link{:href => "/vendor/bootstrap/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "/assets/stylesheets/main.css", :rel => "stylesheet"}
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} Customer Wrangler
+        #navbar.navbar-collapse.collapse
+          %form.navbar-form.navbar-right
+            %input.form-control{:placeholder => "Search...", :type => "text"}/
+
+    = yield
+    
+    /
+      Bootstrap core JavaScript
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}
+      :javascript
+        window.jQuery || document.write('<script src="vendor/jquery-3.1.1.min.js"><\/script>')
+    %script{:src => "/vendor/bootstrap/js/bootstrap.min.js"}

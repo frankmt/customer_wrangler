@@ -11,5 +11,5 @@ enable :static
 set :views, Proc.new { File.join(root, "app/views") }
 
 get '/' do
-   haml :'customers/show'
+   haml :'customers/show', layout: :layout
 end
