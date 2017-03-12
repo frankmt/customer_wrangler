@@ -1,0 +1,70 @@
+// Using em, so if the base unit changes, they all scale appropiately.
+$Type-size8: 0.5em;
+$Type-size10: 0.625em;
+$Type-size12: 0.75em;
+$Type-size14: 0.875em;
+$Type-size16: 1em;
+$Type-size18: 1.125em;
+$Type-size20: 1.25em;
+$Type-size22: 1.375em;
+$Type-size24: 1.5em;
+$Type-size26: 1.625em;
+$Type-size28: 1.75em;
+$Type-size30: 1.875em;
+$Type-size32: 2em;
+$Type-size36: 2.25em;
+$Type-size40: 2.5em;
+$Type-size50: 3.125em;
+$Type-size60: 3.75em;
+
+$Type-baseSize: $Type-size16;
+$Type-baseLineHeight: $Type-size28;
+$Type-baseSize--reset: 16px;
+$Type-baseLineHeight--reset: 28px;
+
+$Type-fontWeight--light:    300;
+$Type-fontWeight--semiBold: 400;
+$Type-fontWeight--bold:     600;
+
+$Type-headingColor: $Color-lightGray;
+$Type-bodyColor:    $Color-lightGray;
+
+.body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: $Type-fontWeight--light;
+  font-size: $Type-baseSize;
+  color: $Type-bodyColor;
+  line-height: $Type-baseLineHeight;
+}
+
+h1 {
+  font-size: $Type-size40;
+  line-height: $Type-size32;
+}
+
+h2 {
+  font-size: $Type-size30;
+  line-height: $Type-size24;
+}
+
+h3 {
+  font-size: $Type-size24;
+  line-height: $Type-baseLineHeight;
+}
+
+h4 {
+  font-size: $Type-size20;
+  line-height: $Type-baseLineHeight;
+}
+
+h5 {
+  font-size: $Type-size18;
+  line-height: $Type-baseLineHeight;
+}
+
+b,
+strong,
+.Type-emphasis {
+  font-size: $Type-size16;
+  font-weight: $Type-fontWeight--bold;
+}

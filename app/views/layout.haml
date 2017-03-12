@@ -3,8 +3,8 @@
   %head
     %title Customer Wrangler
     %link{:href => "/vendor/bootstrap/css/bootstrap.min.css", :rel => "stylesheet"}
-    %link{:href => "/assets/stylesheets/main.css", :rel => "stylesheet"}
-  %body
+    %link{:href => "/assets/stylesheets/application.css", :rel => "stylesheet"}
+  %body.body
     %nav.navbar.navbar-inverse.navbar-fixed-top
       .container-fluid
         .navbar-header
@@ -17,9 +17,14 @@
         #navbar.navbar-collapse.collapse
           %form.navbar-form.navbar-right{method: :post, action: '/search'}
             %input.form-control{:placeholder => "Search for email...", :type => "text", :name => :email}
-            %input.form-control.btn-primary{:type => "Submit"}
+            %input.form-control.form-ButtonPrimary{:type => "Submit"}
 
-    = yield
+    #sidebar
+      .container-fluid
+        = haml :sidebar
+    #main
+      .container-fluid
+        = yield
 
     /
       Bootstrap core JavaScript

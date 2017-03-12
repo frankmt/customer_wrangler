@@ -1,0 +1,23 @@
+#partial-mainStats {
+  .stat {
+    padding: 0;
+
+    .icon, .amount {
+      display: inline-block;
+    }
+
+    .icon {
+      color: white;
+      background-color: $Color-green;
+
+      .glyphicon {
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .amount {
+      background-color: white;
+    }
+  }
+}
