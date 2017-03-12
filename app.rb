@@ -9,7 +9,7 @@ enable :static
 set :views, Proc.new { File.join(root, "app/views") }
 
 get '/' do
-  start_date = (DateTime.now - 7).iso8601
+  start_date = (DateTime.now - 90).iso8601
   end_date = (DateTime.now).iso8601
   @orders = Order.find_by_period("test@user.com", start_date, end_date)
 
