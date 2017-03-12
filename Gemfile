@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'keen'
 gem 'rake'
 gem 'haml'
+gem 'sass'
 gem 'intercom', '~> 3.5.10'
 
 group :development, :test do
