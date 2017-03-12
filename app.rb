@@ -12,6 +12,10 @@ get '/' do
   redirect '/users'
 end
 
+post '/search' do
+  redirect "/users?email=#{params[:email]}"
+end
+
 get '/users' do
   if params[:email]
     @email = params[:email]
