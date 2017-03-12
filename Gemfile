@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'keen'
 gem 'rake'
 gem 'haml'
+gem 'intercom', '~> 3.5.10'
 
 group :development, :test do
   gem 'shotgun'
@@ -14,4 +15,5 @@ end
 
 group :test do
   gem 'rspec'
+  gem 'rspec-mocks'
 end
