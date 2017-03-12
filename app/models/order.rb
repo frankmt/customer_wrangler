@@ -1,5 +1,3 @@
-require 'date'
-
 class Order
 
   attr_reader :user_id, :date, :total, :details
@@ -17,7 +15,7 @@ class Order
       }
     }
 
-    response = Keen.extraction("orders", payload)
+    response = ::Keen.extraction("orders", payload)
     response.map{|order_payload| Order.from_event(order_payload)}
   end
 
