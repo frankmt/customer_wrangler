@@ -1,18 +1,28 @@
 .container-fluid
   .row
     .col-sm-12.col-md-12.main
-      %h1.page-header harry@potter.com
-      %h2.sub-header Last 10 Orders
-      .table-responsive
-        %table.table.table-striped
-          %thead
-            %tr
-              %th Number
-              %th Date
-              %th Total
-          %tbody
-            - @orders.sort_by{|order| order.date}.last(10).reverse.each do |order|
-              %tr
-                %td= order.order_id 
-                %td= order.date.strftime("%d/%m/%Y")
-                %td= order.total
+      - if @email
+        .well
+          %h1= @email
+
+        - unless @orders.empty?
+          %h2.sub-header Last 10 Orders
+          .table-responsive
+            %table.table.table-striped
+              %thead
+                %tr
+                  %th Number
+                  %th Date
+                  %th Total
+              %tbody
+                - @orders.sort_by{|order| order.date}.last(10).reverse.each do |order|
+                  %tr
+                    %td= order.order_id
+                    %td= order.date.strftime("%d/%m/%Y")
+                    %td= order.total
+        - else
+          %h2.text-center User has no data in the system.
+      - else
+        .jumbotron
+          %h1 Hi there,
+          %p please search for an email on the navigation bar to start
