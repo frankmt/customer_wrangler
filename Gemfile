@@ -9,6 +9,7 @@ gem 'haml'
 gem 'intercom', '~> 3.5.10'
 
 group :development, :test do
+  gem 'pry'
   gem 'shotgun'
   gem 'foreman'
 end

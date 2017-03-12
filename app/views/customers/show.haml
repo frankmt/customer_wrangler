@@ -2,24 +2,26 @@
   .row
     .col-sm-12.col-md-12.main
       - if @email
-        .well
-          %h1= @email
+        - if @user
+          .well
+            %h1= @user.email
+            %h2= @user.name
 
-        - unless @orders.empty?
-          %h2.sub-header Last 10 Orders
-          .table-responsive
-            %table.table.table-striped
-              %thead
-                %tr
-                  %th Number
-                  %th Date
-                  %th Total
-              %tbody
-                - @orders.sort_by{|order| order.date}.last(10).reverse.each do |order|
+          - unless @orders.empty?
+            %h2.sub-header Last 10 Orders
+            .table-responsive
+              %table.table.table-striped
+                %thead
                   %tr
-                    %td= order.order_id
-                    %td= order.date.strftime("%d/%m/%Y")
-                    %td= order.total
+                    %th Number
+                    %th Date
+                    %th Total
+                %tbody
+                  - @orders.sort_by{|order| order.date}.last(10).reverse.each do |order|
+                    %tr
+                      %td= order.order_id
+                      %td= order.date.strftime("%d/%m/%Y")
+                      %td= order.total
         - else
           %h2.text-center User has no data in the system.
       - else

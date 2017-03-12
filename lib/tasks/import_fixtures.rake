@@ -22,7 +22,7 @@ namespace :fixtures do
   task :load_intercom_data do
     intercom = Intercom::Client.new(token: ENV['INTERCOM_TOKEN'])
 
-    intercom.users.create(email: "bob@example.com", name: "Bob Smith", signed_up_at: Time.now.to_i)
+    intercom.users.create(email: "test@user.com", name: "Jerry Seinfeld", signed_up_at: Time.now.to_i)
     intercom.users.create(email: "alice@example.com", name: "Alice Cole", signed_up_at: Time.now.to_i)
   end
 

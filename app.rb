@@ -19,12 +19,16 @@ end
 get '/users' do
   if params[:email]
     @email = params[:email]
-    start_date = (DateTime.now - 90).iso8601
-    end_date = (DateTime.now).iso8601
-    @orders = Order.find_by_period(@email, start_date, end_date)
-  else
-    @orders = []
+    @user = User.find_by_email(params[:email])
   end
 
-  haml :'customers/show', layout: :layout
+  if @user
+    start_date = (DateTime.now - 90).iso8601
+    end_date = (DateTime.now).iso8601
+    @orders = Order.find_by_period(@user.email, start_date, end_date)
+    haml :'customers/show', layout: :layout
+  else
+    haml :'customers/show', layout: :layout
+  end
+
 end
