@@ -8,6 +8,7 @@ namespace :fixtures do
       date = DateTime.now - i
       order = Order.new({
         user_id: 'test@user.com',
+        order_id: "R#{rand(9999)}",
         date: date,
         total: 50*i
       })

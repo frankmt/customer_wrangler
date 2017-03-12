@@ -18,6 +18,7 @@ RSpec.describe Order do
         "id"=>"58c3e59472c177677115fc67"
       },
       "total" => 300,
+      "order_id" => "R432",
       "user_id" => "test@user.com",
       "details" => nil
     }]}

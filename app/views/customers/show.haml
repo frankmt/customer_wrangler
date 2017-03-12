@@ -2,7 +2,7 @@
   .row
     .col-sm-12.col-md-12.main
       %h1.page-header harry@potter.com
-      %h2.sub-header Orders
+      %h2.sub-header Last 10 Orders
       .table-responsive
         %table.table.table-striped
           %thead
@@ -11,8 +11,8 @@
               %th Date
               %th Total
           %tbody
-            - @orders.each do |order|
+            - @orders.sort_by{|order| order.date}.last(10).reverse.each do |order|
               %tr
-                %td= "R1234"
+                %td= order.order_id 
                 %td= order.date.strftime("%d/%m/%Y")
                 %td= order.total

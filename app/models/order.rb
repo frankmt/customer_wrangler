@@ -1,6 +1,6 @@
 class Order
 
-  attr_reader :user_id, :date, :total, :details
+  attr_reader :order_id, :user_id, :date, :total, :details
 
   def self.find_by_period(user, start_date, end_date)
     payload = {
@@ -20,6 +20,7 @@ class Order
   end
 
   def initialize(params={})
+    @order_id = params[:order_id]
     @user_id = params[:user_id]
     @date = params[:date]
     @total = params[:total]
@@ -28,6 +29,7 @@ class Order
 
   def to_event
     {
+      order_id: @order_id,
       user_id: @user_id,
       total: @total,
       date: {
@@ -48,6 +50,7 @@ class Order
 
   def self.from_event(payload)
     Order.new({
+      order_id: payload["order_id"],
       user_id: payload["user_id"],
       date: DateTime.parse(payload["date"]["date"]),
       total: payload["total"],
