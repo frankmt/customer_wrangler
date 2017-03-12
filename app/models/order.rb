@@ -4,6 +4,23 @@ class Order
 
   attr_reader :user_id, :date, :total, :details
 
+  def self.find_by_period(user, start_date, end_date)
+    payload = {
+      :filters => [{
+        "property_name" => "user_id",
+        "operator" => "eq",
+        "property_value" => user
+      }],
+      :timeframe => {
+        :start => start_date,
+        :end => end_date
+      }
+    }
+
+    response = Keen.extraction("orders", payload)
+    response.map{|order_payload| Order.from_event(order_payload)}
+  end
+
   def initialize(params={})
     @user_id = params[:user_id]
     @date = params[:date]
@@ -27,6 +44,17 @@ class Order
         timestamp: @date.iso8601
       }
     }
+  end
+
+  private
+
+  def self.from_event(payload)
+    Order.new({
+      user_id: payload["user_id"],
+      date: DateTime.parse(payload["date"]["date"]),
+      total: payload["total"],
+      details: payload["details"]
+    })
   end
 
 end

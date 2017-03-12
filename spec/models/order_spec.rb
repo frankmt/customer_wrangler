@@ -2,6 +2,56 @@ require_relative '../spec_helper'
 
 RSpec.describe Order do
 
+  describe "loading orders from keen" do
+
+    let(:response){[{
+      "date" => {
+        "date"=>"2017-03-05T22:55:00+11:00",
+        "week_day" => 0,
+        "year" => 2017,
+        "week_number" => 10,
+        "month" => 3
+      },
+      "keen" => {
+        "timestamp" => "2017-03-05T11:55:00.000Z",
+        "created_at"=>"2017-03-11T11:55:00.591Z",
+        "id"=>"58c3e59472c177677115fc67"
+      },
+      "total" => 300,
+      "user_id" => "test@user.com",
+      "details" => nil
+    }]}
+
+    it 'should be empty if there are no results' do
+      expect(Keen).to receive(:extraction).and_return([])
+      orders = Order.find_by_period("crazy@user.com", DateTime.now, DateTime.now)
+      expect(orders).to be_empty
+    end
+
+    it "should load based on date and user" do
+      start_date = DateTime.now - 7
+      end_date = DateTime.now
+
+      payload = {
+        :filters => [{
+          "property_name" => "user_id",
+          "operator" => "eq",
+          "property_value" => "test@user.com"
+        }],
+        :timeframe => {
+          :start => start_date,
+          :end => end_date
+        }
+      }
+      expect(Keen).to receive(:extraction).with("orders", payload).and_return(response)
+      orders = Order.find_by_period("test@user.com", start_date, end_date)
+      expect(orders.count).to eq(1)
+      expect(orders.first.user_id).to eq("test@user.com")
+      expect(orders.first.total).to eq(300)
+    end
+
+  end
+
   it "should initialize correctly" do
     expected_date = DateTime.now
     order = Order.new(date: expected_date, total: 100.10, user_id: 'harry@potter.com')
