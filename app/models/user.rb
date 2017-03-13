@@ -63,6 +63,14 @@ class User
     Keen.sum("orders", payload)
   end
 
+  def activity_feed(start_date, end_date)
+    events = []
+    events << Order.find_by_period(self.email, start_date, end_date)
+    events << Email.find_by_period(self.email, start_date, end_date)
+    events << Message.find_by_period(self.email, start_date, end_date)
+    events.flatten
+  end
+
   def initialize(params={})
     @intercom_user_id = params[:intercom_user_id]
     @email = params[:email]

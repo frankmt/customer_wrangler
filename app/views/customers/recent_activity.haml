@@ -1,4 +1,18 @@
-.row
-  .col-md-12
-    .h4.text-center
-      RECENT ACTIVITY
+#partial-recentActivity
+  .panel.panel-default.panel-Panel
+    .panel-heading.panel-Heading.panel-whiteHeading
+      %h3 Recent Activity
+    .panel-body
+      - @recent_activity.each do |event|
+        .row.event
+          .col-md-12
+            %h3
+              - if event.sub_type == 'message'
+                %span.glyphicon.glyphicon-comment
+              - elsif event.sub_type == 'email'
+                %span.glyphicon.glyphicon-envelope
+              - elsif event.sub_type == 'order'
+                %span.glyphicon.glyphicon-usd
+              = event.date.strftime('%d/%m/%Y')
+            %p
+              Some details about the activity

@@ -26,6 +26,9 @@ get '/users' do
     start_date = (DateTime.now - 30).iso8601
     end_date = (DateTime.now).iso8601
     @orders = Order.find_by_period(@user.email, start_date, end_date)
+    start_date = (DateTime.now - 7).iso8601
+    end_date = (DateTime.now).iso8601
+    @recent_activity = @user.activity_feed(start_date, end_date).sort_by{|event| event.date}.reverse
     haml :'customers/show', layout: :layout
   else
     haml :'search/new', layout: :layout

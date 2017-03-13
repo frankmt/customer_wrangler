@@ -1,3 +1,15 @@
+#partial-recentActivity {
+  background-color: white;
+
+  .event {
+    margin: 2px 0;
+
+    .eventType {
+      text-transform: capitalize;
+    }
+  }
+}
+
 #partial-mainStats {
   .stat {
     padding: 0;

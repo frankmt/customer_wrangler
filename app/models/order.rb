@@ -1,6 +1,8 @@
-class Order
+require_relative 'event'
 
-  attr_reader :order_id, :user_id, :date, :total, :details
+class Order < Event
+
+  attr_reader :order_id, :total
 
   def self.find_by_period(user, start_date, end_date)
     payload = {
@@ -20,6 +22,9 @@ class Order
   end
 
   def initialize(params={})
+    @main_type = 'sales'
+    @sub_type = 'order'
+
     @order_id = params[:order_id]
     @user_id = params[:user_id]
     @date = params[:date]
