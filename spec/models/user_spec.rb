@@ -47,6 +47,29 @@ RSpec.describe User do
 
   end
 
+  describe "average order" do
+
+    it "should return average order" do
+      start_date = DateTime.now - (365 * 4)
+      payload = {
+        :target_property => "total",
+        :filters => [{
+          "property_name" => "user_id",
+          "operator" => "eq",
+          "property_value" => "test@user.com"
+        }],
+        :timeframe => {
+          :start => start_date,
+          :end => DateTime.now
+        }
+      }
+      expect(Keen).to receive(:average).with("orders", payload).and_return(1000)
+      user = User.new(email: "test@user.com")
+      expect(user.average_order).to eq(1000)
+    end
+
+  end
+
   describe "loading user from intercom" do
 
     it 'should return nil if user doesnt exist' do

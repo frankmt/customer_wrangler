@@ -29,6 +29,23 @@ class User
     Keen.count("orders", payload)
   end
 
+  def average_order
+    start_date = DateTime.now - (365*4)
+    payload = {
+      :target_property => "total",
+      :filters => [{
+        "property_name" => "user_id",
+        "operator" => "eq",
+        "property_value" => self.email
+      }],
+      :timeframe => {
+        :start => start_date,
+        :end => DateTime.now
+      }
+    }
+    Keen.average("orders", payload)
+  end
+
   def total_sales
     start_date = DateTime.now - (365*4)
     payload = {
