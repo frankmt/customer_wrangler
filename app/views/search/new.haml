@@ -1,0 +1,13 @@
+.row
+  .col-md-4.col-md-offset-8
+    .panel.panel-default.panel-Panel
+      - if @email
+        .panel-heading.panel-Heading
+          %h3 User not found
+        .panel-body.text-center
+          %h2 We could not find this user in the system. Please try again.
+      - else
+        .panel-heading.panel-Heading
+          %h3 Welcome
+        .panel-body.text-center
+          %h2 Search for an user in the field above.

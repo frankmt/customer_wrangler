@@ -9,7 +9,7 @@ enable :static
 set :views, Proc.new { File.join(root, "app/views") }
 
 get '/' do
-  redirect '/users'
+  haml :'search/new', layout: :layout
 end
 
 post '/search' do
@@ -28,7 +28,7 @@ get '/users' do
     @orders = Order.find_by_period(@user.email, start_date, end_date)
     haml :'customers/show', layout: :layout
   else
-    haml :'customers/show', layout: :layout
+    haml :'search/new', layout: :layout
   end
 
 end

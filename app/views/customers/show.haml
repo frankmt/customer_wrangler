@@ -3,35 +3,28 @@
     = haml :"customers/main_stats"
     .row.u-doubleMarginTop
       .col-md-12
-        - if @email
-          - if @user
-
-            - unless @orders.empty?
-              .panel.panel-default.panel-Panel
-                .panel-heading.panel-Heading
-                  %h3 Orders in last month
-                .panel-body
-                  .table-responsive
-                    %table.table.table-Table
-                      %thead
-                        %tr
-                          %th Number
-                          %th Date
-                          %th Total
-                          %th
-                      %tbody
-                        - @orders.sort_by{|order| order.date}.reverse.each do |order|
-                          %tr
-                            %td= order.order_id
-                            %td= order.date.strftime("%d/%m/%Y")
-                            %td= "$#{order.total}"
-                            %td
-                              %a{href: '#'} More info
-          - else
-            %h2.text-center User has no data in the system.
-        - else
-          .jumbotron
-            %h1 Hi there,
-            %p please search for an email on the navigation bar to start
+        .panel.panel-default.panel-Panel
+          .panel-heading.panel-Heading
+            %h3 Orders in last month
+          .panel-body
+            .table-responsive
+              %table.table.table-Table
+                %thead
+                  %tr
+                    %th Number
+                    %th Date
+                    %th Total
+                    %th
+                %tbody
+                  - unless @orders.empty?
+                    - @orders.sort_by{|order| order.date}.reverse.each do |order|
+                      %tr
+                        %td= order.order_id
+                        %td= order.date.strftime("%d/%m/%Y")
+                        %td= "$#{order.total}"
+                        %td
+                          %a{href: '#'} More info
+                  - else
+                    User has no orders in the last month.
   .col-md-3
     = haml :"customers/recent_activity"

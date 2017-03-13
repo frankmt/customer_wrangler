@@ -21,7 +21,8 @@
 
     #sidebar
       .container-fluid
-        = haml :sidebar
+        - if @user
+          = haml :sidebar
     #main
       .container-fluid
         = yield
