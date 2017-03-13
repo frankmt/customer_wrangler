@@ -23,7 +23,7 @@ get '/users' do
   end
 
   if @user
-    start_date = (DateTime.now - 90).iso8601
+    start_date = (DateTime.now - 30).iso8601
     end_date = (DateTime.now).iso8601
     @orders = Order.find_by_period(@user.email, start_date, end_date)
     haml :'customers/show', layout: :layout

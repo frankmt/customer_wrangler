@@ -37,6 +37,10 @@ $Type-bodyColor:    $color-lightGray;
   line-height: $Type-baseLineHeight;
 }
 
+th, td {
+  font-size: $Type-size18;
+}
+
 h1 {
   font-size: $Type-size40;
   line-height: $Type-size32;

@@ -1,0 +1,20 @@
+.table-Table {
+  td, th {
+    color: $color-darkGray;
+  }
+}
+
+.panel-Panel {
+
+  .panel-Heading {
+    height: 50px;
+    background-color: $color-darkGray;
+    text-transform: uppercase;
+    color: white;
+
+    h1,h2,h3,h4,h5 {
+      margin-top: 0;
+    }
+  }
+
+}
