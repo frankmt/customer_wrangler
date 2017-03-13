@@ -1,23 +1,44 @@
 #partial-mainStats {
   .stat {
     padding: 0;
+    height: 90px;
+
+    .icon.totalSales {
+      background-color: $color-Blue;
+    }
+
+    .icon.averageOrder {
+      background-color: $color-Purple;
+    }
 
     .icon, .amount {
+      height: 90px;
       display: inline-block;
+      text-align: center;
     }
 
     .icon {
+      background-color: $color-Green;
       color: white;
-      background-color: $Color-green;
-
-      .glyphicon {
-        text-align: center;
+      vertical-align: top;
+      padding-top: 5px;
+      width: 35%;
+      span {
+        padding-top: $pad;
+        font-size: 40px;
         width: 100%;
       }
     }
 
     .amount {
       background-color: white;
+      color: $Type-bodyColor;
+      width: 63%;
+      vertical-align: top;
+      padding-top: 5px;
+      h1, h4 {
+        margin: 0;
+      }
     }
   }
 }

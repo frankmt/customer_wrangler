@@ -2,8 +2,29 @@
   .col-sm-12.col-md-12.text-center.u-doubleMarginTop.u-doublePaddingBottom
     %h2= @user.email
     %h4= @user.name
-#menu.row.active
-  .col-sm-12.col-md-12
-    %h3.menuItem.text-uppercase
-      %span.glyphicon.glyphicon-home.u-marginRight{:"aria-hidden" => 'true'}
-      DASHBOARD
+#menu
+  .row.active
+    .col-sm-12.col-md-12
+      %h3.menuItem.text-uppercase
+        %span.glyphicon.glyphicon-home.u-marginRight{:"aria-hidden" => 'true'}
+        DASHBOARD
+  .row
+    .col-sm-12.col-md-12
+      %h3.menuItem.text-uppercase
+        %span.glyphicon.glyphicon-usd.u-marginRight{:"aria-hidden" => 'true'}
+        SALES
+  .row
+    .col-sm-12.col-md-12
+      %h3.menuItem.text-uppercase
+        %span.glyphicon.glyphicon-comment.u-marginRight{:"aria-hidden" => 'true'}
+        CONVERSATIONS
+  .row
+    .col-sm-12.col-md-12
+      %h3.menuItem.text-uppercase
+        %span.glyphicon.glyphicon-list.u-marginRight{:"aria-hidden" => 'true'}
+        ALL EVENTS
+  .row
+    .col-sm-12.col-md-12
+      %h3.menuItem.text-uppercase
+        %span.glyphicon.glyphicon-pencil.u-marginRight{:"aria-hidden" => 'true'}
+        ADD EVENT

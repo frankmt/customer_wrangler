@@ -1,22 +1,19 @@
 #partial-mainStats.row
-  .col-md-4.stat.u-paddingRight.u-paddingLeft
-    .icon.u-padding
-      %h1.u-noMargin
-        %span.text-center.glyphicon.glyphicon-usd.u-marginRight{:"aria-hidden" => 'true'}
-    .amount.u-padding
-      %h1.u-noMargin
-        $10.000
-  .col-md-4.stat.u-paddingRight.u-paddingLeft
-    .icon.u-padding
-      %h1.u-noMargin
-        %span.icon.glyphicon.glyphicon-stats.u-marginRight{:"aria-hidden" => 'true'}
+  .col-md-4.stat.u-paddingLeft.u-paddingRight
+    .icon.totalSales
+      %span.glyphicon.glyphicon-usd.u-marginRight{:"aria-hidden" => 'true'}
     .amount
-      %h1.u-padding.u-noMargin
-        XXXXX
-  .col-md-4.stat.u-paddingRight.u-paddingLeft
-    .icon.u-padding
-      %h1.u-noMargin
-        %span.icon.glyphicon.glyphicon-time.u-marginRight{:"aria-hidden" => 'true'}
+      %h1= "$#{@user.total_sales}"
+      %h4 TOTAL SALES
+  .col-md-4.stat.u-paddingLeft.u-paddingRight
+    .icon.numberOfOrders
+      %span.glyphicon.glyphicon-stats.u-marginRight{:"aria-hidden" => 'true'}
     .amount
-      %h1.u-padding.u-noMargin
-        XXXXX
+      %h1= @user.number_of_orders
+      %h4 ORDERS
+  .col-md-4.stat.u-paddingLeft.u-paddingRight
+    .icon.averageOrder
+      %span.glyphicon.glyphicon-credit-card.u-marginRight{:"aria-hidden" => 'true'}
+    .amount
+      %h1 $140
+      %h4 AVERAGE ORDER

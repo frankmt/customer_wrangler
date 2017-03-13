@@ -14,11 +14,11 @@ body {
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: $Color-darkGray;
+  background: $color-darkGray;
 
   #menu {
-    &.active {
-      background: $Color-veryLightGray;
+    .active {
+      background: $color-veryLightGray;
     }
     h3.menuItem {
       margin-top: 10px;
